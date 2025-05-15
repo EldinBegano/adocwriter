@@ -1,0 +1,123 @@
+= AdocWriter
+:toc: left
+:toclevels: 3
+:icons: font
+
+AdocWriter is a Java application that allows you to easily create AsciiDoc documents through a simple console interface. This tool simplifies the process of writing structured documentation using AsciiDoc markup.
+
+== Features
+
+AdocWriter provides an intuitive command-line interface with the following features:
+
+* *Document metadata setup* - Set title, author, and table of contents options
+* *Bullet points* - Create bullet points with a simple command
+* *Headings* - Create headings of different levels
+* *Collapsible sections* - Add expandable/collapsible content sections
+* *Tables* - Create formatted tables with headers and rows
+* *Code snippets* - Insert syntax-highlighted code blocks for various languages
+* *Automatic formatting* - All AsciiDoc syntax is handled for you
+
+== Getting Started
+
+=== Installation
+
+. Clone or download this repository
+. Compile the Java code:
++
+[source,bash]
+----
+javac AdocWriter.java
+----
+. Run the application:
++
+[source,bash]
+----
+java AdocWriter
+----
+
+== Usage Guide
+
+=== Initial Setup
+
+When you start the application, you'll be asked to enter:
+
+* Document title
+* Author name
+* Whether to include a table of contents (y/n)
+
+=== Available Commands
+
+While writing your document, use the following commands:
+
+[cols="1,2,2"]
+|===
+|Command |Description |Example
+
+|`-l text`
+|Create a bullet point
+|`-l This is a bullet point`
+
+|`= level text`
+|Create a heading
+|`= 2 Getting Started`
+
+|`-c title`
+|Start a collapsible section
+|`-c Installation Guide`
+
+|`end-c`
+|End the current collapsible section
+|`end-c`
+
+|`-code language`
+|Start a code snippet
+|`-code java`
+
+|`end-code`
+|End the current code snippet
+|`end-code`
+
+|`-t`
+|Create a table
+|`-t`
+
+|`exit`
+|Save and exit
+|`exit`
+|===
+
+=== Heading Levels
+
+The `=` command creates headings of different levels:
+
+* `= 1 Title` creates a level 1 heading (=)
+* `= 2 Title` creates a level 2 heading (==)
+* `= 3 Title` creates a level 3 heading (===)
+* And so on, up to level 6
+
+=== Creating Tables
+
+When you use the `-t` command, you'll be guided through the table creation process:
+
+. Enter the number of columns
+. Provide column headers
+. Enter data for each row
+. Type `end-table` to finish, or choose to add more rows
+
+=== Creating Code Snippets
+
+When you use the `-code` command:
+
+. Specify the language (e.g., java, python, javascript)
+. Enter your code line by line
+. Type `end-code` when finished
+
+== Output
+
+The application saves your document as `output.adoc` in the current directory. You can open this file with any AsciiDoc viewer or converter to see the formatted result.
+
+== Tips
+
+* You can use multiple commands in sequence to build complex documents
+* Collapsible sections can contain any other elements (bullet points, code, tables)
+* The document is automatically saved when you exit the application
